@@ -1,0 +1,54 @@
+div#container{
+    width: 100%;
+    position: absolute;
+    top: 1945px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+div#games{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+div.game{
+    min-width: 160px;
+    text-align: center;
+}
+
+img.poster{
+    object-fit: cover;
+    width: 100%;
+}
+img.poster:hover{
+    cursor: pointer;
+}
+
+div.game>a{
+    color: black;
+    font-size: 1.1rem;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(94, 94, 94, 0.384);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(68, 68, 68, 0.384);
+    border-radius: 10px;
+}

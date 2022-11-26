@@ -1,0 +1,75 @@
+<div class="row p-4 bg-light" id="conteudo">
+    <div class="col-sm-4" id="poster">
+        <img src="{{filme.poster}}" alt="{{filme.nome}}">
+        <div *ngIf="filme.homepage != '';else imdb">
+            <h4 class="mt-3 ps-5">
+                <a href="{{filme.homepage}}" target="_blank" class="ps-5 text-decoration-none text-black">Assista <i class="bi bi-tv"></i></a>
+            </h4>
+        </div>
+        <ng-template #imdb>
+            <p class="mt-3">
+                Infelizmente não encontramos o link para esse material. Consulte o IMDB ➡️
+                <a href="https://www.imdb.com/title/{{filme.imdb_id}}/" target="_blank" class="fs-5"><i class="bi bi-tv"></i></a>
+            </p>
+        </ng-template>
+    </div>
+    <div class="col">
+        <h2>{{filme.nome}}</h2>
+        <h6>Data de lançamento: {{filme.data_lancamento}}</h6>
+        <h6>Idioma original: {{filme.idioma}}</h6>
+        <h6>Genêros</h6>
+        <ul>   
+            <li *ngFor="let genero of filme.generos"><small class="fw-bold">{{genero}}</small></li>
+        </ul>
+        <p>{{filme.descricao}}</p>
+        <div class="mb-2">  
+            <span>{{filme.nota}} <i class="bi bi-star-fill text-warning"></i></span>
+
+            <span *ngIf="usuario$ | async as user; else naoLogin">
+                <span *ngIf="favorito;else clique">
+                    Favoritar <i class="text-danger bi bi-heart-fill"></i>
+                </span>
+
+                <ng-template #clique>
+                    <button type="button">Favoritar <i class="text-danger bi bi-heart" (click)="favoritar(user.uid)"></i></button>
+                </ng-template>
+
+            </span>
+            <ng-template #naoLogin>
+                <!-- Button trigger modal -->
+                <button type="button" data-bs-toggle="modal" data-bs-target="#avisoModal">
+                    Favorito <i class="text-danger bi bi-heart"></i>
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="avisoModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Aviso</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                Faça o cadastro para habilitar os Favoritos ❤️
+                                </div>
+                                <div class="modal-footer d-flex justify-content-around">
+                                <button type="button" class="btn btn-secondary bg-primary" data-bs-dismiss="modal">
+                                    Fechar
+                                </button>
+                                <button type="button" class="btn btn-secondary bg-primary" data-bs-dismiss="modal">
+                                    <a routerLink="/cadastro" class="text-decoration-none text-white">Cadastro</a>
+                                </button>
+                                <button type="button" class="btn btn-secondary bg-primary" data-bs-dismiss="modal">
+                                    <a routerLink="/login" class="text-decoration-none text-white">Login</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>   
+        </div> 
+        <h6>Produtoras</h6>
+        <ul>
+            <li *ngFor="let produtora of filme.produtoras">{{produtora}}</li>
+        </ul>
+    </div>
+</div>
