@@ -1,35 +1,38 @@
 <ion-content>
-  <div class="login-section ion-padding">
-    <div class="heading ion-padding">
-      <h1> Crie sua conta ClickMovies! </h1>
-      <p> Ache o filme, série ou jogo perfeito para você, conosco!</p>
-    </div>
-    <div class="login form ion-padding">
-      <div class="form input">
-        <ion-icon name="person-outline"></ion-icon>
-        <ion-item>
-          <ion-label position="floating">NOME</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
+    <div class="login-section ion-padding">
+      <form [formGroup]="cadastroForm" (ngSubmit)="cadastro()">
+          <div class="form input">
+            <ion-icon name="person-outline"></ion-icon>
+            <ion-item>
+              <ion-label position="floating" for="nome">NOME</ion-label>
+              <ion-input formControlName="nome" (blur)="validaNome()" id="nome"></ion-input>
+            </ion-item>
+          </div>
+          <div class="form input">
+            <ion-icon name="mail-outline"></ion-icon>
+            <ion-item>
+              <ion-label position="floating" for="email">E-MAIL</ion-label>
+              <ion-input type="email" formControlName="email" (blur)="validaEmail()" id="email"></ion-input>
+            </ion-item>
+          </div>
+          <div class="form input">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <ion-item>
+              <ion-label position="floating" for="senha">SENHA</ion-label>
+              <ion-input type="password" formControlName="senha" (blur)="validaSenha()" id="senha"></ion-input>
+            </ion-item>
+          <div class="form input">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <ion-item>
+              <ion-label position="floating" for="rsenha">CONFIRMAR SENHA</ion-label>
+              <ion-input type="password" formControlName="confirmarSenha" (blur)="validaConfirmaSenha()" id="rsenha"></ion-input>
+            </ion-item>
+        </div>
       </div>
-      <div class="form input">
-        <ion-icon name="mail-outline"></ion-icon>
-        <ion-item>
-          <ion-label position="floating">E-MAIL</ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
-      </div>
-      <div class="form input">
-        <ion-icon name="lock-closed-outline"></ion-icon>
-        <ion-item>
-          <ion-label position="floating">SENHA</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-    </div>
-  </div>
-  <div class="action-buttons ion-padding">
-    <ion-button size="large" class="login-button">Cadastre-se</ion-button>
-    <ion-button class="signup-button" size="large" fill="outline" routerLink="/login">Login</ion-button>
-    </div>
+      <div class="action-buttons ion-padding">
+        <ion-button size="large" class="login-button" type="submit">Cadastre-se</ion-button>
+        <ion-button class="signup-button" size="large" fill="outline" routerLink="login">Login</ion-button>
+        </div>
+    </form>
   </div>
 </ion-content>

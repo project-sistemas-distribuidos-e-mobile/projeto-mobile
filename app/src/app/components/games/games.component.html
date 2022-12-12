@@ -1,9 +1,0 @@
-<div id="container">
-    <h1 class="text-center"><a class="text-decoration-none text-black">Jogos Populares</a></h1>
-    <div id="games" class="p-2 bg-light">
-        <div *ngFor="let jogo of jogos" class="game mx-2">
-            <img src="{{jogo.imagem}}" alt="{{jogo.nome}}" class="poster rounded" >
-            <a class="fw-bold text-decoration-none rounded-bottom" routerLink="titulo/{{jogo.id}}" (click)="abrirJogo(jogo.id)">{{jogo.nome}}</a>
-        </div>
-    </div>
-</div>

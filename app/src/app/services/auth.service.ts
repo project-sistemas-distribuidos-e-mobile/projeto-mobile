@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Auth, authState, createUserWithEmailAndPassword, getAuth, updateProfile } from '@angular/fire/auth';
-import { signInWithEmailAndPassword} from '@firebase/auth';
+import { Auth, authState, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, updateProfile } from '@angular/fire/auth';
 import { from, switchMap } from 'rxjs';
 
- 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
   usuarioAtual$ = authState(this.auth);
-  
-  constructor( private auth: Auth ) { }
+
+  constructor(private auth: Auth) { }
 
   cadastro(nome: string, email: string, senha: string){
     return from(createUserWithEmailAndPassword(this.auth, email, senha))

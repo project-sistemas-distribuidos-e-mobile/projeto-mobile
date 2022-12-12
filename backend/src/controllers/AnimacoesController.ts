@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import AnimacaoService from "../services/AnimacaoService";
 import { Data } from "../models/Data";
 import { Titulo } from "../models/Titulo";
+import BuscaService from "../services/BuscaService";
 
 export default{
     //Retorna um array de 20 animações(seriados) conforme o Modelo
@@ -27,5 +28,6 @@ export default{
             array_de_animacoes.push(animacao);
         });
         return res.json(array_de_animacoes);
-    }
+    },
+
 }

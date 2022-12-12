@@ -1,9 +1,0 @@
-<div id="container">
-    <h1 class="text-center"><a class="text-decoration-none text-black">Filmes Populares</a></h1>
-    <div id="filmes" class="p-2">
-        <div *ngFor="let filme of filmes" class="movie mx-2 bg-light">
-            <img src="{{filme.imagem}}" alt="{{filme.nome}}" class="poster rounded">
-            <a class="fw-bold text-decoration-none rounded-bottom" (click)="abrirFilme(filme.id)" routerLink="titulo/filmes/{{filme.id}}">{{filme.nome}}</a>
-        </div>
-    </div>
-</div>

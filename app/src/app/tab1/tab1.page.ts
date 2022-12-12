@@ -17,5 +17,4 @@ export class Tab1Page {
   })
   .catch(error => {console.log(error)})
 
-
 }

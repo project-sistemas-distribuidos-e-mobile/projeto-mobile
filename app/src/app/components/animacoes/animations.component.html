@@ -1,9 +1,0 @@
-<div id="container">
-    <h1 class="text-center"><a class="text-decoration-none text-black">Animações Populares</a></h1>
-    <div id="animations" class="p-2 bg-light">
-        <div *ngFor="let animacao of animacoes" class="animation mx-2">
-            <img src="{{animacao.imagem || 'https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg'}}" alt="{{animacao.nome}}" class="poster rounded">
-            <a class="fw-bold text-decoration-none rounded-bottom" (click)="abrirAnimacao(animacao.id)" routerLink="/titulo/animacoes/{{animacao.id}}">{{animacao.nome}}</a>
-        </div>
-    </div>
-</div> 

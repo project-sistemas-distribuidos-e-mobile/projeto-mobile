@@ -1,28 +1,28 @@
 <ion-content>
   <div class="login-section ion-padding">
-    <div class="heading ion-padding">
-      <h1> Bem-vindo ao aplicativo ClickMovies! </h1>
-      <p>Cadastre-se para ter uma melhor experiência</p>
-    </div>
     <div class="login form ion-padding">
-      <div class="form input">
-        <ion-icon name="mail-outline"></ion-icon>
-        <ion-item>
-          <ion-label position="floating">E-MAIL</ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
-      </div>
-      <div class="form input">
-        <ion-icon name="lock-closed-outline"></ion-icon>
-        <ion-item>
-          <ion-label position="floating">SENHA</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-    </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form input">
+          <ion-icon name="mail-outline"></ion-icon>
+          <ion-item>
+            <ion-label position="floating" for="email">E-MAIL</ion-label>
+            <ion-input type="email" formControlName="email" (focusout)="validaEmail()" id="email"></ion-input>
+          </ion-item>
+        </div>
+        <div class="form input">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-item>
+            <ion-label position="floating" for="senha">SENHA</ion-label>
+            <ion-input type="password" formControlName="senha" (focusout)="validaSenha()" id="senha"></ion-input>
+          </ion-item>
+        </div>
+        <div class="action-buttons ion-padding"> 
+          <ion-button size="large" class="login-button" type="submit">Login</ion-button>
+        </div>
+      </form>
   </div>
   <div class="action-buttons ion-padding">
-    <ion-button size="large" class="login-button">Login</ion-button>
-    <p>Esqueceu a senha?</p>
     <ion-button class="signup-button" size="large" fill="outline" routerLink="/signup">Cadastre-se</ion-button>
     </div>
   </div>
